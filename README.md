@@ -6,7 +6,7 @@ Publishes topics:<br>
 /left_wheel (Int32)<br>
 /right_wheel (Int32)<br>
 Parses CSV output from an Arduino over serial<br>
-Example Arduino Code<br>
+Example Arduino Code:<br>
 [https://github.com/frankjoshua/arduino-dual-ls7366r](https://github.com/frankjoshua/arduino-dual-ls7366r)
 
 ## Example
