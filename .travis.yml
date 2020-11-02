@@ -3,7 +3,7 @@ dist: xenial
 
 env:
   global:
-    - DOCKER_CONTAINER=frankjoshua/ros-master
+    - DOCKER_CONTAINER=frankjoshua/ros-encoders
 
 before_install:
   - curl -fsSL https://get.docker.com | sh

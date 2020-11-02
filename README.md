@@ -1,10 +1,13 @@
-# ROS master in Docker [![](https://img.shields.io/docker/pulls/frankjoshua/ros-master)](https://hub.docker.com/r/frankjoshua/ros-master) [![Build Status](https://travis-ci.org/frankjoshua/docker-ros-master.svg?branch=master)](https://travis-ci.org/frankjoshua/docker-ros-master)
+# ROS encoders in Docker [![](https://img.shields.io/docker/pulls/frankjoshua/ros-encoders)](https://hub.docker.com/r/frankjoshua/ros-encoders) [![Build Status](https://travis-ci.org/frankjoshua/docker-ros-encoders.svg?branch=master)](https://travis-ci.org/frankjoshua/docker-ros-encoders)
 
 ## Description
 
-Runs a ros master in a Docker container. Probably need --network="host" because ROS uses ephemeral ports.
-
-This repo is mostly an example of how to build a multi architecture docker container with ROS (Robotic Operating System). Travis CI is used to build 3 docker containers using `docker buildx` amd64 (x86 Desktop PC), arm64 (Jetson Nano) and arm32 (Raspberry Pi). This is for the purpose of developing locally on a work pc or laptop. Then being able to transfer your work to an embedded device with a high level of confidence of success.
+Publishes topics:<br>
+/left_wheel (Int32)<br>
+/right_wheel (Int32)<br>
+Parses CSV output from an Arduino over serial<br>
+Example Arduino Code<br>
+[https://github.com/frankjoshua/arduino-dual-ls7366r](https://github.com/frankjoshua/arduino-dual-ls7366r)
 
 ## Example
 
@@ -13,12 +16,9 @@ docker run -it \
     --network="host" \
     --env="ROS_IP=$ROS_IP" \
     --env="ROS_MASTER_URI=$ROS_MASTER_URI" \
-    frankjoshua/ros-master
+    --device "/dev/ttyACM1:/dev/ttyACM0"
+    frankjoshua/ros-encoders
 ```
-
-## Template
-
-This repo is a GitHub template. Just change the repo name in [.travis.yml](.travis.yml) and edit [Dockerfile](Dockerfile) and [README.md](README.md) to taste.
 
 ## Testing
 
